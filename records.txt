@@ -1,2 +1,3 @@
 1000
-lunch -230
+meal breakfast -50
+clothing pants -350
