@@ -109,6 +109,10 @@ class Records:
             del self._records[index]
     
     def find(self, subcategories):
+        if len(subcategories) == 0:
+            sys.stderr.write("The specified category is not in the category list.\n")
+            sys.stderr.write("You can check the category list by command \"view categories\".\n")
+            return
         """Find records with specified subcategories"""
         print(f"Here's your expense and income records under category \"{subcategories[0]}\":")
         print('   {:15s} {:20s} {:6s}'.format('Category', 'Description', 'Amount'))
@@ -186,7 +190,6 @@ while True:
     elif command == 'find':
         category = input('Which category do you want to find? ')
         target_categories = categories.find_subcategories(category)
-        print(target_categories)
         records.find(target_categories)
     elif command == 'exit':
         records.save()
